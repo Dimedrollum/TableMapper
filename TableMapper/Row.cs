@@ -4,25 +4,21 @@ using System.Linq;
 namespace TableMapper
 {
     /// <summary>
-    /// Row.Represents Rows Char Key and Int Value
+    /// Ro_keyepresents Rows Char Key _valuent Value
     /// </summary>
     public class Row
     {
-        public char Key { get; set; }
-        public int Value { get; set; }
+        public char Key{ get;}
+        public int Value{ get; set;}
         string[] _keyValue;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TableMapper.Row"/> class.
-        /// Creates a row from provided string 
-        /// </summary>
-        /// <param name="stringRow">String row.</param>
         public Row(string stringRow)
         {
             SplitKeyValues(stringRow);
             ValidateKeyValuesArray();
             Key = ParseKey();
-            Value = ParseValue();
+            if (_keyValue.Length == 2)
+                Value = ParseValue();
         }
 
         void SplitKeyValues(string stringRow)
@@ -32,7 +28,7 @@ namespace TableMapper
 
         void ValidateKeyValuesArray()
         {
-            if (_keyValue.Length != 2)
+            if (_keyValue.Length > 2)
                 throw new ApplicationException("Row in invalid format is detected");
         }
 
