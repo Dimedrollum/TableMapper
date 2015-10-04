@@ -6,7 +6,7 @@ namespace TableMapper
 	{
 		public static void Main (string[] args)
 		{
-			new Application (args).Run ();	
+            new Application(args).Run();
 		}
 	}
 }
