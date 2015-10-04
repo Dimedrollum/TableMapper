@@ -11,10 +11,10 @@ namespace TableMapperTests
         public void ErrorHandling_ProvideInstructions()
         {
             const string expectedMessage = 
-                "To run the Application please provide addresses to 2 Coma Separated files.\n" + 
-                "Files should have 2 coulmns: 1st - Char and 2nd - Integer.\n" + 
-                "The values will be mapped from 1st table to 2nd.\n" + 
-                "If key is not distinct in sourse file, the first occurance will be used." + 
+                "To run the Application please provide addresses to 2 Coma Separated files.\n" +
+                "Files should have 2 coulmns: 1st - Char and 2nd - Integer.\n" +
+                "The values will be mapped from 1st table to 2nd.\n" +
+                "If key is not distinct in sourse file, the first occurance will be used." +
                 "The result will be saved to 2nd file.";
             var args = new string[] { };
 

@@ -73,6 +73,26 @@ namespace TableMapperTests
             }
         }
 
+        [Test]
+        public void ToSting_1Row()
+        {
+            const string expectedString = "A,1";
+            var table1 = new Table(expectedString);
+            var result = table1.ToString();
+
+            Assert.That(result, Is.EqualTo(expectedString));
+        }
+
+        [Test]
+        public void ToSting_2Rows()
+        {
+            const string expectedString = "A,1\nA,2";
+            var table1 = new Table(expectedString);
+            var result = table1.ToString();
+
+            Assert.That(result, Is.EqualTo(expectedString));
+        }
+
     }
 }
 

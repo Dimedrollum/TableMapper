@@ -8,10 +8,17 @@ namespace TableMapper
     /// </summary>
     public class Row
     {
-        public char Key{ get;}
-        public int Value{ get; set;}
+        public char Key{ get; }
+
+        public int Value{ get; set; }
+
         string[] _keyValue;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TableMapper.Row"/> class.
+        /// Splits string to Key Values pairs.
+        /// </summary>
+        /// <param name="stringRow">String row.</param>
         public Row(string stringRow)
         {
             SplitKeyValues(stringRow);
@@ -65,6 +72,15 @@ namespace TableMapper
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// Returns a <see cref="System.String"/> that represents the current <see cref="TableMapper.Row"/>.
+        /// </summary>
+        /// <returns>A <see cref="System.String"/> that represents the current <see cref="TableMapper.Row"/>.</returns>
+        public override string ToString()
+        {
+            return string.Format("{0},{1}", Key, Value);
         }
     }
 }

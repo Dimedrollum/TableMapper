@@ -66,7 +66,7 @@ namespace TableMapperTests
             {
                 Assert.That(ex.Message, Is.EqualTo(message));
             }
-        }   
+        }
 
         [Test]
         public void ConstructorError_Value_NotAnInt()
