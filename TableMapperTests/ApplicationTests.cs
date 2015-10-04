@@ -8,7 +8,7 @@ namespace TableMapperTests
 	public class ApplicationTests
 	{
 		[Test]
-		public void Constructor_0_IsntructionsProvided ()
+		public void ErrorHandling_0_ProvideInstructions ()
 		{
 			var expectedMessage = 
 				"To run the Application please provide addresses to 2 Coma Separated files.\n" +
@@ -19,20 +19,20 @@ namespace TableMapperTests
 			var args = new string[] {};
 
 			try {
-				new Application (args);				
+				new Application (args).Run();				
 			} catch (ApplicationException ex) {
 				Assert.That (ex.Message, Is.EqualTo (expectedMessage));
 			}
 		}
 
 		[Test]
-		public void Validate_1_SecondFileException ()
+		public void ErrorHandling_1_SecondFileException ()
 		{
 			var expectedMessage = "Please Provide second file in argumets.";
 			var args = new [] { "test" };
 
 			try {
-				new Application(args);
+				new Application(args).Run();
 			} catch (ApplicationException ex) {
 				Assert.That (ex.Message, Is.EqualTo (expectedMessage));
 			}
@@ -46,17 +46,25 @@ namespace TableMapperTests
 			var args = new [] { "test", "test", "test" };
 
 			try {
-				new Application(args);
+				new Application(args).Run();
 			} catch (ApplicationException ex) {
 				Assert.That (ex.Message, Is.EqualTo (expectedMessage));
 			}
 		}
 
 		[Test]
-		public void Validate_2_NoException ()
+		public void ValidArgumetsCostructorTest ()
 		{
 			var args = new [] { "test", "test" };
-			new Application (args);
+			var app = new Application (args);
+			Assert.That (app, Is.Not.Null);
+		}
+
+		[Test]
+		public void FileNamesConstuctorTest ()
+		{
+			var app = new Application ("file1", "file2");
+			Assert.That (app, Is.Not.Null);
 		}
 
 
